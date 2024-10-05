@@ -41,7 +41,14 @@ active_pieces = [
     clases.Mage(4, 4, "red", 13, 12, 1 , 0, 1),
     clases.Archer(6, 6, "red", 17, 8, 3, 1, 2)
 ]
-selected_piece = None
+bar_x = (game.width/16.991)
+bar_y = (game.height/1.095) - 838
+rm_image = pygame.image.load("resources/images/red_mage.png")
+rm_x = bar_x - 55
+rm_image = pygame.transform.smoothscale(rm_image, (70, 70))
+#images = [clases.Mage.loadimages()]
+#for image in images
+#selected_piece = None
 
 show_config_menu = False
 
@@ -138,6 +145,8 @@ def draw():
     for piece in active_pieces:    # displaying all pieces
         piece.draw(game.screen, piece.image)
         piece.draw_health_bar(game.screen, active_pieces.index(piece), my_team, piece.team)
+    
+    game.screen.blit(rm_image, (rm_x, bar_y))    
 
     game.screen.blit(game.x_btn, (game.x_btn_metrics["x"], game.x_btn_metrics["y"]))  # displaying btns
     game.screen.blit(game.shrink_btn, (game.shrink_btn_metrics["x"], game.shrink_btn_metrics["y"]))

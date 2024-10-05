@@ -208,6 +208,7 @@ class Piece:
     
     def draw_health_bar(self, screen, index, my_team, team):
         
+        
         bar_width = 300
         bar_height = 30
         # Calcula la longitud de la barra de vida en función del porcentaje de vida
@@ -216,18 +217,18 @@ class Piece:
 
         # Posición de la barra (ajusta según tu diseño)
         # Colores para la barra de vida (verde y rojo)
-        health_color = (0, 255, 0)  # Verde para la vida restante
+        health_color = (129, 0, 0)  # Verde para la vida restante
         background_color = (255, 0, 0)  # Rojo para la vida perdida
 
         bar_x = (Game.width/16.991) # Mueve un poco la barra a la izquierda de la pieza
         if team == my_team:
             bar_y = (Game.height/1.095)  # Ajusta para colocar la barra debajo de la pieza
-            bar_y = bar_y - index * 50 
+            bar_y = bar_y - index * 75
         else:
             bar_y = (Game.height/22) 
-            bar_y = bar_y + index * 50 - Game.height/10
-            
-            
+            bar_y = bar_y + index * 75 - Game.height/6
+        
+        
             
         pygame.draw.rect(screen, background_color, (bar_x, bar_y, bar_width, bar_height))
 
